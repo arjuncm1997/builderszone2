@@ -1,0 +1,600 @@
+{% extends 'alayout.html' %}
+{% block content %}
+
+
+
+   
+
+
+<div class="col-lg-8" style="    right: 162px;left: 150px; margin-top: 40px;">
+  <h1 class="text-center" >Add Your Project</h1>
+  <div id="big-form" class="well auth-box" style="max-width: 650px;margin-left: 230px;margin-top: 20px;">
+    <form action="" method="POST" enctype="multipart/form-data">
+
+
+      {{form.hidden_tag()}}
+
+      <fieldset>
+
+        <div class="form-group">
+          {{ form.name.label(class="form-control-label") }}
+          <div class="">
+            
+                                  {% if form.name.errors %}
+                                      {{ form.name(class="form-control form-control-lg is-invalid") }}
+                                      <div class="invalid-feedback">
+                                          {% for error in form.name.errors %}
+                                              <span>{{ error }}</span>
+                                          {% endfor %}
+                                      </div>
+                                  {% else %}
+                                      {{ form.name(class="form-control form-control-lg") }}
+                                  {% endif %}
+            
+          </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group">
+          {{ form.desc.label(class="form-control-label") }}
+          <div class="">
+            
+                                  {% if form.desc.errors %}
+                                      {{ form.desc(class="form-control form-control-lg is-invalid") }}
+                                      <div class="invalid-feedback">
+                                          {% for error in form.desc.errors %}
+                                              <span>{{ error }}</span>
+                                          {% endfor %}
+                                      </div>
+                                  {% else %}
+                                      {{ form.desc(class="form-control form-control-lg") }}
+                                  {% endif %}
+            
+          </div>
+        </div>
+        <div class="form-group">
+          {{ form.numemp.label(class="form-control-label") }}
+          <div class="">
+            
+                                  {% if form.numemp.errors %}
+                                      {{ form.numemp(class="form-control form-control-lg is-invalid") }}
+                                      <div class="invalid-feedback">
+                                          {% for error in form.numemp.errors %}
+                                              <span>{{ error }}</span>
+                                          {% endfor %}
+                                      </div>
+                                  {% else %}
+                                      {{ form.numemp(class="form-control form-control-lg") }}
+                                  {% endif %}
+            
+          </div>
+        </div>
+        <div class="form-group">
+          {{ form.empcost.label(class="form-control-label") }}
+          <div class="">
+            
+                                  {% if form.empcost.errors %}
+                                      {{ form.empcost(class="form-control form-control-lg is-invalid") }}
+                                      <div class="invalid-feedback">
+                                          {% for error in form.empcost.errors %}
+                                              <span>{{ error }}</span>
+                                          {% endfor %}
+                                      </div>
+                                  {% else %}
+                                      {{ form.empcost(class="form-control form-control-lg") }}
+                                  {% endif %}
+            
+          </div>
+        </div>
+        <div class="form-group">
+          {{ form.days.label(class="form-control-label") }}
+          <div class="">
+            
+                                  {% if form.days.errors %}
+                                      {{ form.days(class="form-control form-control-lg is-invalid") }}
+                                      <div class="invalid-feedback">
+                                          {% for error in form.days.errors %}
+                                              <span>{{ error }}</span>
+                                          {% endfor %}
+                                      </div>
+                                  {% else %}
+                                      {{ form.days(class="form-control form-control-lg") }}
+                                  {% endif %}
+            
+          </div>
+        </div>
+
+        <!-- Select Basic -->
+       
+       <table class="table table-bordered">
+        <tr>
+          <th>Materials</th>
+          <th>Quantity</th>
+
+        </tr>
+        <tr>
+
+            <td><div class="">
+            
+              {% if form.mat1.errors %}
+                  {{ form.mat1(class="form-control form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.mat1.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  <select id="select_box" class="form-group" style="" name="mat1">
+            
+                    <option></option>
+                    {% for material in material %}
+                    <option value={{material.id}}>Name: {{material.name}}, Brand: {{material.brand}}, Price: {{material.price}}</option>
+                    {% endfor %}
+                    </select>
+              {% endif %}
+            
+            </div></td>
+
+<td><div class="">
+            
+    {% if form.mat1q.errors %}
+        {{ form.mat1q(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.mat1q.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    {% else %}
+        {{ form.mat1q(class="form-control form-control-lg") }}
+    {% endif %}
+
+</div></td>
+        </tr>
+        <tr>
+
+          <td><div class="">
+          
+            {% if form.mat2.errors %}
+                {{ form.mat2(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.mat2.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+            <select class="form-group" style="" name="mat2">
+
+                  <option></option>
+                  {% for material in material %}
+                  <option value={{material.id}}>Name: {{material.name}}, Brand: {{material.brand}}, Price: {{material.price}}</option>
+                    {% endfor %}
+                  </select>
+            {% endif %}
+
+</div></td>
+
+<td><div class="">
+            
+    {% if form.mat2q.errors %}
+        {{ form.mat2q(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.mat2q.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    {% else %}
+        {{ form.mat2q(class="form-control form-control-lg") }}
+    {% endif %}
+
+</div></td>
+      </tr>
+      <tr>
+
+        <td><div class="">
+        
+          {% if form.mat3.errors %}
+              {{ form.mat3(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                  {% for error in form.mat3.errors %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+          {% else %}
+          <select class="form-group" style="" name="mat3">
+
+                <option></option>
+                {% for material in material %}
+                <option value={{material.id}}>Name: {{material.name}}, Brand: {{material.brand}}, Price: {{material.price}}</option>
+                    {% endfor %}
+                </select>
+          {% endif %}
+
+</div></td>
+<td><div class="">
+            
+    {% if form.mat3q.errors %}
+        {{ form.mat3q(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.mat3q.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    {% else %}
+        {{ form.mat3q(class="form-control form-control-lg") }}
+    {% endif %}
+
+</div></td>
+
+    </tr>
+    <tr>
+
+      <td><div class="">
+      
+        {% if form.mat4.errors %}
+            {{ form.mat4(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.mat4.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+        <select class="form-group" style="" name="mat4">
+
+              <option></option>
+              {% for material in material %}
+              <option value={{material.id}}>Name: {{material.name}}, Brand: {{material.brand}}, Price: {{material.price}}</option>
+                    {% endfor %}
+              </select>
+        {% endif %}
+
+</div></td>
+<td><div class="">
+            
+    {% if form.mat4q.errors %}
+        {{ form.mat4q(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.mat4q.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    {% else %}
+        {{ form.mat4q(class="form-control form-control-lg") }}
+    {% endif %}
+
+</div></td>
+  </tr>
+  <tr>
+
+    <td><div class="">
+    
+      {% if form.mat5.errors %}
+          {{ form.mat5(class="form-control form-control-lg is-invalid") }}
+          <div class="invalid-feedback">
+              {% for error in form.mat5.errors %}
+                  <span>{{ error }}</span>
+              {% endfor %}
+          </div>
+      {% else %}
+      <select class="form-group" style="" name="mat5">
+
+            <option></option>
+            {% for material in material %}
+            <option value={{material.id}}>Name: {{material.name}}, Brand: {{material.brand}}, Price: {{material.price}}</option>
+                    {% endfor %}
+            </select>
+      {% endif %}
+
+</div></td>
+<td><div class="">
+            
+    {% if form.mat5q.errors %}
+        {{ form.mat5q(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.mat5q.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    {% else %}
+        {{ form.mat5q(class="form-control form-control-lg") }}
+    {% endif %}
+
+</div></td>
+
+</tr>
+<tr>
+
+    <td><div class="">
+    
+      {% if form.mat6.errors %}
+          {{ form.mat6(class="form-control form-control-lg is-invalid") }}
+          <div class="invalid-feedback">
+              {% for error in form.mat6.errors %}
+                  <span>{{ error }}</span>
+              {% endfor %}
+          </div>
+      {% else %}
+          <select id="select_box" class="form-group" style="" name="mat6">
+    
+            <option></option>
+            {% for material in material %}
+            <option value={{material.id}}>Name: {{material.name}}, Brand: {{material.brand}}, Price: {{material.price}}</option>
+            {% endfor %}
+            </select>
+      {% endif %}
+    
+    </div></td>
+
+<td><div class="">
+    
+{% if form.mat6q.errors %}
+{{ form.mat6q(class="form-control form-control-lg is-invalid") }}
+<div class="invalid-feedback">
+    {% for error in form.mat6q.errors %}
+        <span>{{ error }}</span>
+    {% endfor %}
+</div>
+{% else %}
+{{ form.mat6q(class="form-control form-control-lg") }}
+{% endif %}
+
+</div></td>
+</tr>
+<tr>
+
+    <td><div class="">
+    
+      {% if form.mat7.errors %}
+          {{ form.mat7(class="form-control form-control-lg is-invalid") }}
+          <div class="invalid-feedback">
+              {% for error in form.mat7.errors %}
+                  <span>{{ error }}</span>
+              {% endfor %}
+          </div>
+      {% else %}
+          <select id="select_box" class="form-group" style="" name="mat7">
+    
+            <option></option>
+            {% for material in material %}
+            <option value={{material.id}}>Name: {{material.name}}, Brand: {{material.brand}}, Price: {{material.price}}</option>
+            {% endfor %}
+            </select>
+      {% endif %}
+    
+    </div></td>
+
+<td><div class="">
+    
+{% if form.mat7q.errors %}
+{{ form.mat7q(class="form-control form-control-lg is-invalid") }}
+<div class="invalid-feedback">
+    {% for error in form.mat7q.errors %}
+        <span>{{ error }}</span>
+    {% endfor %}
+</div>
+{% else %}
+{{ form.mat7q(class="form-control form-control-lg") }}
+{% endif %}
+
+</div></td>
+</tr><tr>
+
+    <td><div class="">
+    
+      {% if form.mat8.errors %}
+          {{ form.mat8(class="form-control form-control-lg is-invalid") }}
+          <div class="invalid-feedback">
+              {% for error in form.mat8.errors %}
+                  <span>{{ error }}</span>
+              {% endfor %}
+          </div>
+      {% else %}
+          <select id="select_box" class="form-group" style="" name="mat8">
+    
+            <option></option>
+            {% for material in material %}
+            <option value={{material.id}}>Name: {{material.name}}, Brand: {{material.brand}}, Price: {{material.price}}</option>
+            {% endfor %}
+            </select>
+      {% endif %}
+    
+    </div></td>
+
+<td><div class="">
+    
+{% if form.mat8q.errors %}
+{{ form.mat8q(class="form-control form-control-lg is-invalid") }}
+<div class="invalid-feedback">
+    {% for error in form.mat8q.errors %}
+        <span>{{ error }}</span>
+    {% endfor %}
+</div>
+{% else %}
+{{ form.mat8q(class="form-control form-control-lg") }}
+{% endif %}
+
+</div></td>
+</tr><tr>
+
+    <td><div class="">
+    
+      {% if form.mat9.errors %}
+          {{ form.mat9(class="form-control form-control-lg is-invalid") }}
+          <div class="invalid-feedback">
+              {% for error in form.mat9.errors %}
+                  <span>{{ error }}</span>
+              {% endfor %}
+          </div>
+      {% else %}
+          <select id="select_box" class="form-group" style="" name="mat9">
+    
+            <option></option>
+            {% for material in material %}
+            <option value={{material.id}}>Name: {{material.name}}, Brand: {{material.brand}}, Price: {{material.price}}</option>
+            {% endfor %}
+            </select>
+      {% endif %}
+    
+    </div></td>
+
+<td><div class="">
+    
+{% if form.mat9q.errors %}
+{{ form.mat9q(class="form-control form-control-lg is-invalid") }}
+<div class="invalid-feedback">
+    {% for error in form.mat9q.errors %}
+        <span>{{ error }}</span>
+    {% endfor %}
+</div>
+{% else %}
+{{ form.mat9q(class="form-control form-control-lg") }}
+{% endif %}
+
+</div></td>
+</tr><tr>
+
+    <td><div class="">
+    
+      {% if form.mat10.errors %}
+          {{ form.mat10(class="form-control form-control-lg is-invalid") }}
+          <div class="invalid-feedback">
+              {% for error in form.mat10.errors %}
+                  <span>{{ error }}</span>
+              {% endfor %}
+          </div>
+      {% else %}
+          <select id="select_box" class="form-group" style="" name="mat10">
+    
+            <option></option>
+            {% for material in material %}
+            <option value={{material.id}}>Name: {{material.name}}, Brand: {{material.brand}}, Price: {{material.price}}</option>
+            {% endfor %}
+            </select>
+      {% endif %}
+    
+    </div></td>
+
+<td><div class="">
+    
+{% if form.mat10q.errors %}
+{{ form.mat10q(class="form-control form-control-lg is-invalid") }}
+<div class="invalid-feedback">
+    {% for error in form.mat10q.errors %}
+        <span>{{ error }}</span>
+    {% endfor %}
+</div>
+{% else %}
+{{ form.mat10q(class="form-control form-control-lg") }}
+{% endif %}
+
+</div></td>
+</tr>
+       </table>
+      <div class="form-group">
+        {{ form.addcost.label(class="form-control-label") }}
+        <div class="">
+          
+                                {% if form.addcost.errors %}
+                                    {{ form.addcost(class="form-control form-control-lg is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.addcost.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.addcost(class="form-control form-control-lg") }}
+                                {% endif %}
+          
+        </div>
+      </div>
+      <div class="form-group">
+        {{ form.pic.label() }}
+        <div class="">
+          {{ form.pic(class="form-control-file") }}
+          {% if form.pic.errors %}
+              {% for error in form.pic.errors %}
+                  <span>{{ error }}</span></br>
+              {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+      <div class="form-group">
+        {{ form.pic1.label() }}
+        <div class="">
+          {{ form.pic1(class="form-control-file") }}
+          {% if form.pic1.errors %}
+              {% for error in form.pic1.errors %}
+                  <span>{{ error }}</span></br>
+              {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+      <div class="form-group">
+        {{ form.pic2.label() }}
+        <div class="">
+          {{ form.pic2(class="form-control-file") }}
+          {% if form.pic2.errors %}
+              {% for error in form.pic2.errors %}
+                  <span>{{ error }}</span></br>
+              {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+      <div class="form-group">
+        {{ form.pic3.label() }}
+        <div class="">
+          {{ form.pic3(class="form-control-file") }}
+          {% if form.pic3.errors %}
+              {% for error in form.pic3.errors %}
+                  <span>{{ error }}</span></br>
+              {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+      
+      <div class="form-group">
+        {{ form.pic4.label() }}
+        <div class="">
+          {{ form.pic4(class="form-control-file") }}
+          {% if form.pic4.errors %}
+              {% for error in form.pic4.errors %}
+                  <span>{{ error }}</span></br>
+              {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div style="color:black;margin-left: 250px;" >{{ form.submit(class="btn btn-outline-info") }}</div>
+        
+      </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+  
+$('#select_box').change(function () {
+var select=$(this).find(':selected').val();        
+ $(".hide").hide();
+ $('#' + select).show();
+
+	    }).change();
+
+
+</script>
+
+{% endblock  %}
