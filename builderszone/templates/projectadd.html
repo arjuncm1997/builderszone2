@@ -1,7 +1,21 @@
 {% extends 'alayout.html' %}
 {% block content %}
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+
+  <script>
+    function GetSelectedValue(){
+      mat = 'Materil';
+      var e = document.getElementById("country");
+      var result = e.options[e.selectedIndex].value;
+      var text=e.options[e.selectedIndex].text;
+      
+      document.getElementById("selectedCode").value=text
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
 
    
 
@@ -115,25 +129,27 @@
         <tr>
 
             <td><div class="">
-            
-              {% if form.mat1.errors %}
-                  {{ form.mat1(class="form-control form-control-lg is-invalid") }}
-                  <div class="invalid-feedback">
-                      {% for error in form.mat1.errors %}
-                          <span>{{ error }}</span>
-                      {% endfor %}
-                  </div>
-              {% else %}
-                  <select id="select_box" class="form-group" style="" name="mat1">
-            
-                    <option></option>
-                    {% for material in material %}
-                    <option value={{material.id}}>Name: {{material.name}}, Brand: {{material.brand}}, Price: {{material.price}}</option>
-                    {% endfor %}
-                    </select>
-              {% endif %}
-            
-            </div></td>
+          
+                {% if form.mat1.errors %}
+                    {{ form.mat1(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.mat1.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <select type="name" class="form-group" id="country" onchange="GetSelectedValue()">
+                      <option></option>
+                      {% for material in material %}
+                      <option value={{material.category}}> {{material.category}}</option>
+                        {% endfor %}
+                      </select>
+                      <select type="hidden" name="selectedCode" id="selectedCode" class="form-group" >
+                        <option id="result"></option>
+                        </select>
+                {% endif %}
+    
+    </div></td>
 
 <td><div class="">
             
@@ -593,6 +609,7 @@ var select=$(this).find(':selected').val();
  $('#' + select).show();
 
 	    }).change();
+
 
 
 </script>

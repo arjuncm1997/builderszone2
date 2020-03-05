@@ -207,6 +207,7 @@ def projectadd():
         db.session.add(project)
         db.session.commit()
         return redirect('/aindex')
+
     return render_template('projectadd.html',form=form, material = material)
 
 
@@ -903,11 +904,17 @@ def amaterials():
     if request.method=='POST':
         name= request.form['sort']
         return redirect('/aamaterials/'+str(name))
+    return render_template("amaterials.html")
+
+@app.route('/aaamaterials',methods = ['GET','POST'])
+def aaamaterials():
+    if request.method=='POST':
+        name= request.form['sort']
+        return redirect('/aamaterials/'+str(name))
 
     else:
         material = Materials.query.all()
-    return render_template("amaterials.html",material=material)
-
+    return render_template("aaamaterials.html",material=material)
 
 @app.route('/aamaterials/<name>',methods = ['GET','POST'])
 def aamaterials(name):
@@ -924,10 +931,17 @@ def umaterials():
         name= request.form['sort']
         return redirect('/uumaterials/'+str(name))
 
+    return render_template("umaterials.html")
+
+@app.route('/uuumaterials',methods = ['GET','POST'])
+def uuumaterials():
+    if request.method=='POST':
+        name= request.form['sort']
+        return redirect('/uumaterials/'+str(name))
+
     else:
         material = Materials.query.all()
-    return render_template("umaterials.html",material=material)
-
+    return render_template("uuumaterials.html",material=material)
 
 @app.route('/uumaterials/<name>',methods = ['GET','POST'])
 def uumaterials(name):
