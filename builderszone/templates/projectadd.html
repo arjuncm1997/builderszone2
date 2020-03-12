@@ -138,15 +138,13 @@
                         {% endfor %}
                     </div>
                 {% else %}
-                    <select type="name" class="form-group" id="country" onchange="GetSelectedValue()">
+                <select class="form-group" style="" name="mat2">
+    
                       <option></option>
                       {% for material in material %}
-                      <option value={{material.category}}> {{material.category}}</option>
+                      <option value={{material.id}}>Name: {{material.name}}, Brand: {{material.brand}}, Price: {{material.price}}</option>
                         {% endfor %}
                       </select>
-                      <select type="hidden" name="selectedCode" id="selectedCode" class="form-group" >
-                        <option id="result"></option>
-                        </select>
                 {% endif %}
     
     </div></td>
